@@ -1,0 +1,26 @@
+{
+	"name": "wildwolf/recaptcha",
+	"description": "Adds reCAPTCHA to the login form",
+	"keywords": ["security", "captcha", "login", "recaptcha"],
+	"type": "roundcube-plugin",
+	"license": "MIT",
+	"authors": [
+		{"name": "Volodymyr Kolesnykov", "email": "volodymyr@wildwolf.name", "role": "Lead"}
+	],
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://plugins.roundcube.net"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/sjinks/roundcube_recaptcha.git"
+		}
+	],
+	"require": {
+		"php": ">=7.0",
+		"roundcube/plugin-installer": ">=0.1.6",
+		"cloudflare/cf-ip-rewrite": "^1.0",
+		"google/recaptcha": "^1.1"
+	}
+}
