@@ -19,4 +19,8 @@ Plugin name is "wildwolf/recaptcha"
 $rcmail_config['recaptcha_public_key'] = 'sitekey form https://www.google.com/recaptcha/admin';
 $rcmail_config['recaptcha_secret_key'] = 'secret from https://www.google.com/recaptcha/admin';
 $rcmail_config['recaptcha_theme']      = 'dark or light';
+
+// Set this option to true to have the login button disabled, Until
+// the user clicks the checkbox to pass the reCAPTCHA test.
+$rcmail_config['auto_disable'] = true;
 ```
