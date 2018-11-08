@@ -5,7 +5,7 @@ class recaptcha extends rcube_plugin
     public function init()
     {
         $this->load_config();
-
+	$this->include_script('recaptcha.js');
         $rcmail = rcmail::get_instance();
         if ($rcmail->config->get('recaptcha_public_key') != '' && $rcmail->config->get('recaptcha_secret_key') != '') {
             $this->add_hook('template_object_loginform', [$this, 'template_object_loginform']);
@@ -25,9 +25,17 @@ class recaptcha extends rcube_plugin
 
         $loginform['content'] = str_ireplace(
             '</tbody>',
-            '<tr><td class="title"></td><td class="input"><div class="g-recaptcha" data-theme="' . html::quote($theme) . '" data-sitekey="' . html::quote($key) . '"></div></td></tr></tbody>',
+            '<tr><td class="title"></td><td class="input"><div class="g-recaptcha" id="recaptcha-checkbox" data-theme="' . html::quote($theme) . '" data-sitekey="' . html::quote($key) . '" data-callback="recaptchaCallback"></div></td></tr></tbody>',
             $loginform['content']
         );
+
+	if($rcmail->config->get('auto_disable')) {
+		$loginform['content'] = str_ireplace(
+		    '<input type="submit" id="rcmloginsubmit" class="button mainaction" value="Login">',
+		    '<input type="submit" id="rcmloginsubmit" class="button mainaction" value="Login" disabled>',
+		    $loginform['content']
+		);
+	}
 
         return $loginform;
     }
