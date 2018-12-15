@@ -10,7 +10,7 @@ Plugin name is "wildwolf/recaptcha"
 
 # Configuration
 
-`config.inc.php`:
+Edit `config.inc.php` file in <Your-roundcube-install-basepath>/plugins/recaptcha:
 
 ```php
 <?php
