@@ -4,3 +4,7 @@
 $rcmail_config['recaptcha_public_key'] = '';
 $rcmail_config['recaptcha_secret_key'] = '';
 $rcmail_config['recaptcha_theme']      = 'dark';
+
+// Set this option to true to have the login button disabled, Until
+// the user clicks the checkbox to pass the reCAPTCHA test.
+$rcmail_config['auto_disable'] = true;
